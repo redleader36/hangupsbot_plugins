@@ -52,7 +52,7 @@ def clan(bot, event, *args):
         search = ' '.join(args)
         if search.startswith('#'):
             """search by tag"""
-            r = coc.clans(search).get()
+            r = coc.clans(search.upper()).get()
             if r=={'reason': 'notFound'}:
                 yield from bot.coro_send_message(event.conv_id, 'No results found.')
                 return
